@@ -10,6 +10,7 @@ let userQuery = "" ;
 const ID = "1ca1d3b1";
 const key = "62d7392ffcf842ad6453def3d31e59f3";
 
+//from search you type to recipe
 go.addEventListener("click", (e) => {
     e.preventDefault();
     userQuery = document.querySelector('input').value; 
@@ -17,6 +18,8 @@ go.addEventListener("click", (e) => {
     document.querySelector('input').value = "";
 })
 
+
+//make arrow to appear on home page
 window.onscroll = () => {
     if (document.documentElement.scrollTop > 500) {
         topPage.style.display = 'block';
@@ -26,6 +29,7 @@ window.onscroll = () => {
     }
 }
 
+//make arrow to arrive to home page
 topPage.addEventListener('click', () => {
     document.documentElement.scrollTop = 0;
 })
@@ -34,6 +38,8 @@ topPage.addEventListener('click', () => {
 const getAPI = async() => {
     const baseURL = "https://api.edamam.com/search";
     const data = await fetch(`${baseURL}?q=${userQuery}&app_id=${ID}&app_key=${key}`);
+    
+    //to catch errors
     try {
     const json = await data.json();
     createContent(json.hits);
@@ -44,6 +50,7 @@ const getAPI = async() => {
     }
 }
 
+//put all recipes on page
 function createContent(results) {
     let content = "";
     for (let result of results) {
