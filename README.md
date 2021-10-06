@@ -2,7 +2,7 @@
 
 author [Omar Ahmed Mohamady]
 
-1- make a fun API to get recipes instead of your favourite meal
+1- make a fun API to get recipes by your favourite meal
 
 2- responsive to all screens
 
